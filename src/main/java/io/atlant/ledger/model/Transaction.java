@@ -3,6 +3,8 @@ package io.atlant.ledger.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -11,18 +13,24 @@ import javax.persistence.*;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "t_user")
-public class User {
+@Table(name = "t_transaction")
+public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column
-    private String name;
+    @ManyToOne
+    private Account account;
 
     @Column
-    private String password;
+    private Date timestamp;
+
+    @Column
+    private BigDecimal value;
+
+    @ManyToOne
+    private Category category;
 
 }

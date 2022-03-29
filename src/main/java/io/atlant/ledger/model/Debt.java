@@ -3,6 +3,7 @@ package io.atlant.ledger.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -11,18 +12,23 @@ import javax.persistence.*;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "t_user")
-public class User {
+@Table(name = "t_debt")
+public class Debt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column
-    private String name;
+    @ManyToOne
+    private Transaction transaction;
 
     @Column
-    private String password;
+    private String borrower;
 
+    @Column
+    private String creditor;
+
+    @Column
+    private Date dueDate;
 }

@@ -12,8 +12,8 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "t_account")
-public class Account {
+@Table(name = "t_currency")
+public class Currency {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,15 +21,22 @@ public class Account {
     private Long id;
 
     @Column
+    private String ticker;
+
+    @Column
+    private BigDecimal priceInUsd;
+
+    /*
+     * https://www.compart.com/en/unicode/category/Sc - unicode of currencies symbol
+     */
+
+    @Column
+    private Character symbol;
+
+    @Column
     private String name;
 
     @Column
-    private BigDecimal value;
-
-    @ManyToOne
-    private User user;
-
-    @ManyToOne
-    private Currency currency;
+    private String shortName;
 
 }

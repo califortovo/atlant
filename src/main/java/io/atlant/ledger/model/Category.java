@@ -11,8 +11,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "t_user")
-public class User {
+@Table(name = "t_category")
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,9 +20,12 @@ public class User {
     private Long id;
 
     @Column
+    private Long parent_id;
+
+    @Column
     private String name;
 
     @Column
-    private String password;
+    private String color;
 
 }
