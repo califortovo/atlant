@@ -23,9 +23,6 @@ public class Balance {
     @Column(name = "p_sum")
     private int sum;
 
-    //TODO: изучить java.util.currency
-    @ManyToOne
-    private LocalCurrency currency;
 
     public Balance(int sum) {
         this.sum = sum;
